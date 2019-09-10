@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="myStyle.css">
+</head>
+     
+    <h1>
+        Add New Developer
+    </h1>
+    <form action="/newdevdata" method="POST">
+        First Name: <input type="text" name="firstName"> <br>
+        Last Name: <input type="text" name="lastName"> <br>
+        Level: <select name="devLevel">
+            <option value="BEGINNER"> BEGINNER</option>
+            <option value="EXPERT"> EXPERT</option>
+        </select></br>
+        Address: <br>
+        Unit: <input type="text" name="addUnit">
+        Street: <input type="text" name="addStreet"> <br>
+        Suburb: <input type="text" name="addSuburb">
+        State: <input type="text" name="addState"> <br>
+        <button type="submit">Submit</button>
+    </form>
+    <p>
+        <a href="/">Home</a><br>
+        <a href="/listDev">List All developers</a></br>
+        <a href="/newtask">Add new Task</a></br>
+        <a href="/listTask">List Task</a></br>
+        <a href="/updateTask">Update Task</a><br />
+        <a href="/deleteTask">Delete Task</a><br />
+        <a href="/deleteAll">Delete All</a></br>
+        <a href="/insertMany"> Insert Many</a>
+
+
+    </p>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="myStyle.css">>
+</head>
+
+<body>
+
+        <h1>Enter new Task:</h1>
+        <form action="addMany" method="post">
+            Task Name <input type="text" name="TaskName" /><br />
+            Task Assign <input type="text" name="TaskAssign" /><br />
+            Task Due <input type="date" name="TaskDue" /><br />
+            Task Status:
+            <select name="TaskStatus">
+                <option value="In Progress"> In Progress</option>
+                <option value="Complete"> Complete</option>
+            </select></br>
+            Task Description <input type="text" name="TaskDesc" /><br />
+            Count: <input type= "number" name ="count" > </br>
+            <button style="height: 25px;width: 80px">Submit</button>
+        </form>
+        <p>
+            <a href="/">Home</a><br>
+            <a href="/addNewDev">Add new developer</a></br>
+            <a href="/listDev">List All developers</a></br>
+            <a href="/newtask">Add new Task</a></br>
+            <a href="/listTask">List Task</a></br>
+            <a href="/updateTask">Update Task</a><br />
+            <a href="/deleteTask">Delete Task</a><br />
+            <a href="/deleteAll">Delete All</a></br>
+
+        </p>
+</body>
+
+</html>

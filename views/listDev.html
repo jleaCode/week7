@@ -1,0 +1,44 @@
+<html>
+<head>
+    <link rel="stylesheet" href="myStyle.css">
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid black;
+        }
+    </style>
+</head>  
+    <h1>
+        LIST OF DEVELOPERS
+    </h1>
+    <table class="table table-bordered table-striped"></table>
+    <table>
+        <tr>
+            <td>Developer ID</td>
+            <td>Developer Name</td>
+            <td>Developer Level</td>
+            <td>Developer Address</td>
+        </tr>
+        <% for (let i=0; i < devDb.length; i++){ %>
+        <tr>
+            <td><%= devDb[i]._id %> </td>
+            <td> <%= devDb[i].name.firstName + ' ' + devDb[i].name.lastName %> </td>
+            <td><%= devDb[i].level %></td>
+            <td><%= devDb[i].address.unit + ', ' + devDb[i].address.street + ', ' + devDb[i].address.suburb + ', ' + devDb[i].address.state %></td>
+        </tr>
+        <%}%>
+    </table>
+    <p>
+        <a href="/">Home</a><br>
+        <a href="/addNewDev">Add new developer</a></br>
+        <a href="/newtask">Add new Task</a></br>
+        <a href="/listTask">List Task</a></br>
+        <a href="/updateTask">Update Task</a><br />
+        <a href="/deleteTask">Delete Task</a><br />
+        <a href="/deleteAll">Delete All</a></br>
+        <a href="/insertMany"> Insert Many</a>
+
+    </p>
+</body>
+</html>
