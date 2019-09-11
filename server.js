@@ -18,7 +18,7 @@ app.set('view engine', "html");
 
 let Developer = require('./models/developer');
 let Task = require('./models/task');
-let db = 'mongodb://localhost:27017/devTasks';
+let db = 'mongodb://35.201.7.112:27017/devTasks';
 
 mongoose.connect(db, function (err) {
     if (err) {
