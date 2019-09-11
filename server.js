@@ -1,5 +1,5 @@
 let express = require('express')
-const mongoose = require("mongoose");
+const mongoose = require("mongoose", { useNewUrlParser: true });
 let bodyParser = require('body-parser')
 let ejs = require('ejs');
 let app = express()
@@ -149,30 +149,37 @@ app.post('/deleteAllTask', function (req, res) {
     console.log(req.body.selection);
 });
 
-//insert Many 
-app.get("/insertMany", function (req, res) {
-    res.sendFile(__dirname + "/views/insertMany.html")
+//add four tasks
+app.get("/addFour", function (req, res) {
+    res.sendFile(__dirname + "/views/addFour.html")
 });
 
-app.post('/addMany', function (req, res) {
-    let count = req.body.count
-    let tasks = [];
-    for (i = 0; i < count; i++) {
-        tasks.push({
-            TaskId: Math.round(Math.random() * 1000),
-            TaskName: req.body.TaskName,
-            TaskAssign: req.body.TaskAssign,
-            TaskDue: req.body.TaskDue,
-            TaskStatus: req.body.TaskStatus,
-            TaskDesc: req.body.TaskDesc
+app.post('/addFour', function (req, res) {
+    let task = req.body;
+    let date = new Date(task.taskDue);
+    let taskList = [];
+    
+    for (i = 0; i < 4; i++) {
+        let addTask = new Task({
+            taskName: task.taskName,
+            taskAssign: task.taskAssign,
+            taskDue: date,
+            taskStatus: task.taskStatus,
+            taskDesc: task.taskDesc
         })
-    }
-    console.log(tasks);
-    db.collection('tasklist').insertMany(tasks);
-    res.redirect('/listTask');
+        taskList.push(addTask)
+    };
+   
 
-})
+    Task.insertMany(taskList, function (err) {
+        if (err) {
+            throw err;
+        } else {
+            console.log(taskList);
+        }
+        res.redirect('/listtask');
+    });
 
-
+});
 
 app.listen(8080);
